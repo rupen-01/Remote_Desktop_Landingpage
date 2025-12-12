@@ -14,7 +14,7 @@ function Navbar() {
           <img 
             src={logo} 
             alt="ProtoMart Logo" 
-            className="w-10 h-10 transform transition-transform duration-500 hover:scale-110"
+            className="w-auto h-9 transform transition-transform duration-500 hover:scale-110"
           />
           <span className="text-2xl font-bold text-[#6D94C5] animate-fadeIn">
             ProtoMart

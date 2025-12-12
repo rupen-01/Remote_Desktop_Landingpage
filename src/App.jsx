@@ -1,29 +1,47 @@
-import Navbar from "./components/Navbar"
-import Hero from "./components/Hero"
-import Features from "./components/Features"
-import UseCases from "./components/UseCases"
-import Testimonials from "./components/Testimonials"
-import Pricing from "./components/Pricing"
-import Trust from "./components/Trust"
-import Download from "./components/Download"
-import FAQ from "./components/FAQ"
-import Footer from "./components/Footer"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+// Website components
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Features from "./components/Features";
+import Pricing from "./components/Pricing";
+import UseCases from "./components/UseCases";
+import Testimonials from "./components/Testimonials";
+import Trust from "./components/Trust";
+import FAQ from "./components/FAQ";
+import Footer from "./components/Footer";
+
+// Admin page
+import AdsTable from "./components/AdsTable";
+
+function Website() {
   return (
-    <div className="font-sans">
+    <>
       <Navbar />
       <Hero />
       <Features />
       <UseCases />
-      <Testimonials />
       <Pricing />
+      <Testimonials />
       <Trust />
-      <Download />
       <FAQ />
       <Footer />
-    </div>
-  )
+    </>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Normal Website */}
+        <Route path="/" element={<Website />} />
+
+        {/* ✅ Completely Separate Admin Page */}
+        <Route path="/admin" element={<AdsTable />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
