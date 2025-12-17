@@ -1,8 +1,9 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api/ads",
+  baseURL: "https://remote-desktop-landingpage-backend.onrender.com/api/ads",
 });
+
 
 export const getBanners = async () => {
   return API.get("/");
