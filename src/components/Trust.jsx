@@ -112,10 +112,10 @@
 
 
 import { useState, useEffect } from "react";
-import logo1 from "../assets/download (1).jpeg";
-import logo2 from "../assets/download (4).jpeg";
-import logo3 from "../assets/img_01.png";
-import logo4 from "../assets/image02.jpg";
+import logo1 from "../assets/OFAAX40.jpg";
+import logo2 from "../assets/63011.jpg";
+import logo3 from "../assets/6465198.jpg";
+import logo4 from "../assets/images.png";
 
 function Trust() {
   const logos = [logo1, logo2, logo3, logo4];

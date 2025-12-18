@@ -81,11 +81,16 @@
 
 // export default Hero
 
-
 import { motion } from "framer-motion";
 import heroIllustration from "../assets/image03.jpg";
 
 function Hero() {
+  // ✅ FORCE DOWNLOAD FUNCTION
+  const handleDownload = () => {
+    window.location.href =
+      "https://github.com/priyanshmalakar/remotedesktop2.0/releases/download/2.0.3/MyRemoteAppSetup.Setup.2.0.3.exe";
+  };
+
   return (
     <section
       className="pt-28 md:pt-36 pb-16 text-center relative overflow-hidden"
@@ -122,13 +127,14 @@ function Hero() {
         transition={{ duration: 0.8, delay: 0.4 }}
         className="mt-8 flex justify-center space-x-4"
       >
-        {/* Primary CTA */}
-        <a
-          href="#download"
+        {/* 🔥 DOWNLOAD BUTTON (FIXED) */}
+        <button
+          onClick={handleDownload}
           className="px-6 py-3 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105"
           style={{
             backgroundColor: "#6D94C5",
             color: "#F5EFE6",
+            cursor: "pointer",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = "#CBDCEB";
@@ -140,7 +146,7 @@ function Hero() {
           }}
         >
           Download Now
-        </a>
+        </button>
 
         {/* Secondary CTA */}
         <a
@@ -172,7 +178,7 @@ function Hero() {
         transition={{ duration: 1, delay: 0.6 }}
       />
 
-      {/* Optional Floating Animation */}
+      {/* Floating Blur */}
       <motion.div
         className="absolute top-0 left-1/2 transform -translate-x-1/2 w-64 h-64 bg-[#CBDCEB] rounded-full opacity-30 blur-3xl"
         animate={{ y: [0, 20, 0] }}

@@ -5,6 +5,12 @@ import logo from "../assets/Only ProtoMart (editable) RGB.png";
 function Navbar() {
   const [open, setOpen] = useState(false);
 
+  // ✅ FORCE DOWNLOAD FUNCTION
+  const handleDownload = () => {
+    window.location.href =
+      "https://github.com/priyanshmalakar/remotedesktop2.0/releases/download/2.0.3/MyRemoteAppSetup.Setup.2.0.3.exe";
+  };
+
   return (
     <nav className="w-full fixed top-0 left-0 z-50 shadow-md bg-[#F5EFE6] transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -35,49 +41,63 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* CTA Button */}
+        {/* 🔥 CTA Download Button (Desktop) */}
         <div className="hidden md:block">
-          <a
-            href="#download"
+          <button
+            onClick={handleDownload}
             className="px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-[#CBDCEB] hover:text-[#232323]"
             style={{ backgroundColor: "#6D94C5", color: "#F5EFE6" }}
           >
             Download Now
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-[#6D94C5]" onClick={() => setOpen(!open)}>
-          {open ? <X size={28} className="transition-transform duration-300 transform rotate-180"/> : <Menu size={28} />}
+        <button
+          className="md:hidden text-[#6D94C5]"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? (
+            <X size={28} className="transition-transform duration-300 transform rotate-180" />
+          ) : (
+            <Menu size={28} />
+          )}
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div 
-        className={`md:hidden overflow-hidden transition-max-height duration-500 ease-in-out ${open ? "max-h-96" : "max-h-0"}`}
+        className={`md:hidden overflow-hidden transition-max-height duration-500 ease-in-out ${
+          open ? "max-h-96" : "max-h-0"
+        }`}
         style={{ backgroundColor: "#F5EFE6" }}
       >
         <ul className="flex flex-col items-center space-y-4 py-6 font-medium">
           {["Features", "Use Cases", "Pricing", "Download", "FAQ"].map((item, index) => (
-            <li key={index} className="opacity-0 animate-slideIn animation-delay-[${index*100}ms]">
-              <a href={`#${item.toLowerCase().replace(" ", "")}`} className="hover:text-[#6D94C5] transition-colors duration-300">
+            <li key={index} className="opacity-0 animate-slideIn">
+              <a
+                href={`#${item.toLowerCase().replace(" ", "")}`}
+                className="hover:text-[#6D94C5] transition-colors duration-300"
+              >
                 {item}
               </a>
             </li>
           ))}
+
+          {/* 🔥 CTA Download Button (Mobile) */}
           <li>
-            <a
-              href="#download"
+            <button
+              onClick={handleDownload}
               className="px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-[#CBDCEB] hover:text-[#232323]"
               style={{ backgroundColor: "#6D94C5", color: "#F5EFE6" }}
             >
               Download Now
-            </a>
+            </button>
           </li>
         </ul>
       </div>
 
-      {/* Tailwind Animations */}
+      {/* Animations */}
       <style>
         {`
           @keyframes fadeIn {
