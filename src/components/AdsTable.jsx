@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getBanners, createBanner, deleteBanner } from "../services/api";
+import logo from "../../public/Only ProtoMart (editable) RGB.png"; // 👈 LOGO PATH
 
 const AdsTable = () => {
   const [banners, setBanners] = useState([]);
@@ -24,7 +25,6 @@ const AdsTable = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
     if (!redirectLink) return alert("Redirect link is required");
 
     try {
@@ -33,14 +33,12 @@ const AdsTable = () => {
       const formData = new FormData();
       formData.append("title", title);
       formData.append("redirectLink", redirectLink);
-
       if (image) formData.append("file", image);
 
       await createBanner(formData);
 
       setRedirectLink("");
       setImage(null);
-
       fetchBanners();
     } catch (error) {
       console.error("Create banner failed", error);
@@ -62,11 +60,27 @@ const AdsTable = () => {
     <div className="min-h-screen bg-gray-100 p-3 sm:p-6">
       <div className="max-w-6xl mx-auto">
 
-        <h1 className="text-2xl sm:text-3xl font-bold mb-6">
-          Admin Panel – Advertisement Banners
-        </h1>
+       {/* ===== HEADER WITH LOGO (FIXED) ===== */}
+<div className="bg-white rounded-xl shadow mb-6">
+  <div className="flex items-center px-6 py-4 gap-4">
+    
+    {/* LOGO */}
+    <img
+      src={logo}
+      alt="Admin Logo"
+      className="w-40 h-20 object-contain"
+    />
 
-        {/* FORM */}
+    {/* TITLE */}
+    <h1 className="text-xl sm:text-2xl font-bold text-gray-800">
+      Admin Panel – Advertisement Banners
+    </h1>
+
+  </div>
+</div>
+
+
+        {/* ===== FORM ===== */}
         <div className="bg-white p-4 sm:p-6 rounded-xl shadow mb-8">
           <h2 className="text-xl font-semibold mb-4">
             Add / Update Banner
@@ -76,7 +90,6 @@ const AdsTable = () => {
             onSubmit={submitHandler}
             className="grid gap-4 grid-cols-1 md:grid-cols-2"
           >
-            {/* Title */}
             <select
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -86,7 +99,6 @@ const AdsTable = () => {
               <option value="banner2">Banner 2</option>
             </select>
 
-            {/* Redirect Link */}
             <input
               type="text"
               placeholder="Redirect Link"
@@ -96,7 +108,7 @@ const AdsTable = () => {
               required
             />
 
-            {/* FILE UPLOAD BOX */}
+            {/* FILE UPLOAD */}
             <label className="md:col-span-2 border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center justify-center cursor-pointer hover:border-blue-500 transition">
               <input
                 type="file"
@@ -104,11 +116,9 @@ const AdsTable = () => {
                 onChange={(e) => setImage(e.target.files[0])}
                 className="hidden"
               />
-
               <span className="text-gray-600 font-medium">
                 Click to upload Image / Video
               </span>
-
               {image && (
                 <span className="mt-2 text-sm text-green-600">
                   Selected: {image.name}
@@ -116,18 +126,17 @@ const AdsTable = () => {
               )}
             </label>
 
-            {/* BUTTON */}
             <button
               type="submit"
-              className="md:col-span-2 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
               disabled={loading}
+              className="md:col-span-2 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
             >
               {loading ? "Saving..." : "Save Banner"}
             </button>
           </form>
         </div>
 
-        {/* TABLE */}
+        {/* ===== TABLE ===== */}
         <div className="bg-white p-4 sm:p-6 rounded-xl shadow">
           <h2 className="text-xl font-semibold mb-4">
             All Banners
@@ -149,7 +158,6 @@ const AdsTable = () => {
               <tbody>
                 {banners.map((b) => (
                   <tr key={b._id} className="border-t">
-
                     <td className="p-2">
                       {b.image && (
                         <img
@@ -158,7 +166,6 @@ const AdsTable = () => {
                           alt="banner"
                         />
                       )}
-
                       {b.videoUrl && (
                         <video
                           src={b.videoUrl}
@@ -205,7 +212,6 @@ const AdsTable = () => {
                         Delete
                       </button>
                     </td>
-
                   </tr>
                 ))}
 
