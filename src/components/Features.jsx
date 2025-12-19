@@ -5,7 +5,7 @@ const features = [
   {
     icon: <Monitor className="w-10 h-10 text-[#6D94C5]" />,
     title: "Cross-Platform Access",
-    desc: "AnyDesk works across Windows, macOS, Linux, iOS, and Android. Connect instantly from any device."
+    desc: "ProtoMart Easy Access works across Windows, macOS, Linux, iOS, and Android. Connect instantly from any device."
   },
   {
     icon: <Shield className="w-10 h-10 text-[#6D94C5]" />,

@@ -31,7 +31,7 @@ function Download() {
       }}
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-slideIn">
-        Download AnyDesk Today
+        Download ProtoMart Easy Access Today
       </h2>
       <p className="mt-4 text-lg text-[#232323] animate-slideIn animation-delay-200">
         Fast, secure, and free for personal use.

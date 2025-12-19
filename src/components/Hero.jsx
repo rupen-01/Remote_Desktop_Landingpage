@@ -116,7 +116,7 @@ function Hero() {
         style={{ color: "#232323" }}
       >
         Connect to a computer remotely, be it from the other end of the office or
-        halfway around the world. AnyDesk ensures secure and reliable remote
+        halfway around the world. ProtoMart Easy Access ensures secure and reliable remote
         desktop connections.
       </motion.p>
 

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 const faqs = [
-  { q: "Is AnyDesk free?", a: "Yes, AnyDesk is free for personal use. Businesses need a paid plan." },
-  { q: "Which platforms are supported?", a: "AnyDesk works on Windows, macOS, Linux, Android, and iOS." },
-  { q: "Is my connection secure?", a: "Yes, AnyDesk uses TLS 1.2 and RSA 2048-bit key encryption." }
+  { q: "Is ProtoMart Easy Access free?", a: "Yes, ProtoMart Easy Access is free for personal use. Businesses need a paid plan." },
+  { q: "Which platforms are supported?", a: "ProtoMart Easy Access works on Windows, macOS, Linux, Android, and iOS." },
+  { q: "Is my connection secure?", a: "Yes, ProtoMart Easy Access uses TLS 1.2 and RSA 2048-bit key encryption." }
 ];
 
 function FAQ() {

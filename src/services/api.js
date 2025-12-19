@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: "https://remote-desktop-landingpage-backend.onrender.com/api/ads",
+  // baseURL: "http://localhost:5000/api/ads",
 });
 
 

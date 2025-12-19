@@ -230,7 +230,7 @@ function UseCases() {
           className="mt-4 max-w-2xl mx-auto"
           style={{ color: "#232323" }}
         >
-          Whether you're working from home, providing IT support, or managing servers — AnyDesk has you covered.
+          Whether you're working from home, providing IT support, or managing servers — ProtoMart Easy Access has you covered.
         </p>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
